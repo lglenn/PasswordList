@@ -22,5 +22,8 @@ Passwords::Application.configure do
 
   # Only use best-standards-support built into browsers
   config.action_dispatch.best_standards_support = :builtin
+
+  # Location of the public key file for encrypting passwords
+  config.public_key = '/Users/larry/Projects/passwords/keys/public.pem'
 end
 
