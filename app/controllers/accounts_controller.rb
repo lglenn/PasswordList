@@ -1,6 +1,3 @@
-require 'cryptpass.rb'
-
-include CryptPass
 
 class AccountsController < ApplicationController
   # GET /accounts
@@ -34,10 +31,6 @@ class AccountsController < ApplicationController
   # POST /accounts.xml
   def create
     @account = Account.new(params[:account])
-
-    if @account.valid?
-      @account.password = cryptpass(Rails.application.config.public_key,@account.password)
-    end
 
     respond_to do |format|
       if @account.save
