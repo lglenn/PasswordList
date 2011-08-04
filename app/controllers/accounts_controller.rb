@@ -77,4 +77,17 @@ class AccountsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def report
+    @accounts = Account.all
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def txtreport
+    @accounts = Account.all
+    render :file => 'accounts/txtreport', :content_type => 'text/plain', :layout => 'plaintext'
+  end
+
 end

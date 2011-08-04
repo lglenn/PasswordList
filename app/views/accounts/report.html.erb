@@ -1,0 +1,15 @@
+<table>
+<tr>
+<th>Name</th>
+<th>Username</th>
+<th>Password</th>
+</tr>
+  <% @accounts.each do |a| %>
+<tr>
+<td><%= a.name %></td>
+<td><%= a.username %></td>
+<td><%= a.password %></td>
+</tr>
+<% end %>
+</table>
+

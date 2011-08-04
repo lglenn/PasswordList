@@ -1,6 +1,9 @@
 Passwords::Application.routes.draw do
+  match 'accounts/report' => 'accounts#report'
+  match 'accounts/txtreport' => 'accounts#txtreport'
   resources :accounts
   root :to => "accounts#index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
