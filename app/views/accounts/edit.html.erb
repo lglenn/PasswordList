@@ -1,6 +1,8 @@
-<h1>Editing account</h1>
+<h1>Edit Your Account Info</h1>
+
+<div class="info"></div>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @account %> |
+<%= link_to 'Delete this one', @account, :method => :delete %>
 <%= link_to 'Back', accounts_path %>

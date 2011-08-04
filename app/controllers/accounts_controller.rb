@@ -14,17 +14,6 @@ class AccountsController < ApplicationController
     end
   end
 
-  # GET /accounts/1
-  # GET /accounts/1.xml
-  def show
-    @account = Account.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @account }
-    end
-  end
-
   # GET /accounts/new
   # GET /accounts/new.xml
   def new
@@ -46,11 +35,13 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(params[:account])
 
-    @account.password = cryptpass(Rails.application.config.public_key,"hello")
+    if @account.valid?
+      @account.password = cryptpass(Rails.application.config.public_key,@account.password)
+    end
 
     respond_to do |format|
       if @account.save
-        format.html { redirect_to(@account, :notice => 'Account was successfully created.') }
+        format.html { redirect_to(accounts_url) }
         format.xml  { render :xml => @account, :status => :created, :location => @account }
       else
         format.html { render :action => "new" }
@@ -66,7 +57,7 @@ class AccountsController < ApplicationController
 
     respond_to do |format|
       if @account.update_attributes(params[:account])
-        format.html { redirect_to(@account, :notice => 'Account was successfully updated.') }
+        format.html { redirect_to(accounts_url) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

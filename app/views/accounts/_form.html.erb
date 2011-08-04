@@ -2,7 +2,6 @@
   <% if @account.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
-
       <ul>
       <% @account.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -11,19 +10,20 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.text_field :password, :value => '' %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<table>
+  <tr>
+    <th><%= f.label :name %></th>
+    <th><%= f.label :username %></td>
+    <th><%= f.label :password %></td>
+  </tr>
+  <tr>
+   <td><%= f.text_field :name %></td>
+   <td><%= f.text_field :username %></td>
+   <td><%= f.text_field :password, :value => '' %></td>
+  </tr>
+  <tr>
+    <td colspan="3" class="form_submission"><%= f.submit :class => 'btn', :value => 'Save' %></td>
+  </tr>
+</table>
+
 <% end %>
