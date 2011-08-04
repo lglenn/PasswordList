@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110803223338) do
+ActiveRecord::Schema.define(:version => 20110804163726) do
 
   create_table "accounts", :force => true do |t|
     t.string   "name"
     t.string   "username"
-    t.string   "password"
+    t.string   "password",   :limit => 1024
     t.datetime "created_at"
     t.datetime "updated_at"
   end
