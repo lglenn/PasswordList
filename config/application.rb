@@ -38,5 +38,8 @@ module Passwords
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+
+    # Location of the public key file for encrypting passwords
+    config.public_key = "#{Rails.root}/keys/public.pem"
   end
 end
