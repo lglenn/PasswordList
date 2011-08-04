@@ -40,9 +40,6 @@ def getuser(file)
   return ret
 end
 
-username = name = nil
-password = ''
-
 file = File.open(filename)
 
 until file.eof?
