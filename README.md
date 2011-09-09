@@ -1,7 +1,7 @@
 Password List
 =============
 
-The problem: someone says to you, "I need a list of all of your team's passwords." You don't really want to walk around collecting them, you don't want to have people send them to you via email, both because that's insecure and because you don't really feel like babysitting your inbox and collating a list. Enter Password List. A small webapp that lets people enter their name, username, and password in a form. The webapp will encrypt the password with a public key, and store it in a database. Going to /accounts/report (or /accounts/txtreport), and you get the list. Then use the decryptor script in /tools (along with the private key) to convert the entire list to plaintext, at which point you can hand it off to whoever asked for it. 
+The problem: someone says to you, "I need a list of all of your team's passwords." You don't really want to walk around collecting them, you don't want to have people send them to you via email, both because that's insecure and because you don't really feel like babysitting your inbox and collating a list. Enter Password List. A small webapp that lets people enter their name, username, and password in a form. The webapp will encrypt the password with a public key, and store it in a database. When everyone's done, go to /accounts/report (or /accounts/txtreport), and you get the list. Then use the decryptor script in /tools (along with the private key) to convert the entire list to plaintext, at which point you can hand it off to whoever asked for it. 
 
 Dependencies
 ============
@@ -23,6 +23,8 @@ Usage
 =====
 
 Send people to the site, have them enter their info. 
+
+You (and the rest of the world) can see who's entered their info by going to /. 
 
 To retrieve the data that's been uploaded, go to /acounts/report (or /accounts/txtreport for a text-plain version), and save the report. Then run the decryptor script (/tools/decryptor.rb), with the filename of the report, the filename of the private key, and the key's passphrase (yes, I know that's bad) as command-line arguments. For example: 
 
