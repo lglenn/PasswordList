@@ -29,7 +29,24 @@ To retrieve the data that's been uploaded, go to /acounts/report (or /accounts/t
 	./tools/decryptor.rb passwords.txt secret.key foobar
 
 As soon as you get what you needed, blow away the database, just to be safe. 
+
+Generating Keys
+===============
+
+To generate a keypair, make sure that [OpenSSL](http://www.openssl.org/) is installed on your local box. If you're on a Mac, it's probably there. Open a terminal, and from the command line, do: 
+
+	openssl genrsa -out private_key.pem
+	
+That'll generate your private key file -- it's in `private_key.pem`. Now need to extract the public key. Do this: 
+
+	openssl rsa -pubout -in private_key.pem -out public.pem
+
+Now your public key file is in `public.pem`. 
+
+Keep the private key someplace safe -- _not on the server!_ -- and put `public.pem` in the `keys` directory of the deployed app. 
  
+When you're ready to download and decrypt the password list, you'll need that private key file. 
+
 Caveats
 =======
 
