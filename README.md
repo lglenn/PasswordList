@@ -15,9 +15,9 @@ Installation
 
 It's a rails app. Deploy it somewhere, e.g. Heroku. 
 
-Do a rake db:migrate
+Do a `rake db:migrate`
 
-Create a public key, and stick it in /keys/public.pem. There's a sample key there, but it's useless to you, as you don't have the private key. 
+Create a public key, and stick it in `/keys/public.pem`. There's a sample key there, but it's useless to you, as you don't have the private key. 
 
 Usage
 =====
@@ -26,7 +26,7 @@ Send people to the site, have them enter their info.
 
 You (and the rest of the world) can see who's entered their info by going to /. 
 
-To retrieve the data that's been uploaded, go to /acounts/report (or /accounts/txtreport for a text-plain version), and save the report. Then run the decryptor script (/tools/decryptor.rb), with the filename of the report, the filename of the private key, and the key's passphrase (yes, I know that's bad) as command-line arguments. For example: 
+To retrieve the data that's been uploaded, go to /acounts/report (or /accounts/txtreport for a text-plain version), and save the report. Then run the decryptor script (`/tools/decryptor.rb`), with the filename of the report, the filename of the private key, and the key's passphrase (yes, I know that's bad) as command-line arguments. For example: 
 
 	./tools/decryptor.rb passwords.txt secret.key foobar
 
